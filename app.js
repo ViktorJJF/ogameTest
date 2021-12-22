@@ -1,6 +1,7 @@
 (async () => {
   const puppeteer = require("puppeteer");
   const browser = await puppeteer.launch({
+    devtools: true,
     headless: true,
     executablePath: "/usr/bin/chromium-browser",
     args: [
