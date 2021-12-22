@@ -1,12 +1,13 @@
 (async () => {
   const puppeteer = require("puppeteer");
   const browser = await puppeteer.launch({
-    headless: true,
-    executablePath: "/usr/bin/chromium-browser",
+    headless: false,
+    // executablePath: "/usr/bin/chromium-browser",
     args: [
       "--no-sandbox",
       "--disable-setuid-sandbox",
       "--disable-dev-shm-usage",
+      "--window-size=1200,800",
     ],
   });
   console.log("empezando...");
@@ -40,12 +41,16 @@
     "#loginForm > p > button.button.button-primary.button-lg"
   );
   await page.click("#loginForm > p > button.button.button-primary.button-lg");
+  await page.goto("https://lobby.ogame.gameforge.com/es_ES/hub");
+  await page.screenshot({
+    path: "./screens/screen9.png",
+  });
   await page.waitForSelector("div > #joinGame > a > .button > span", {
-    timeout: 25000,
+    timeout: 15000,
   });
   console.log("hecho!!");
   //   await browser.close();
   await page.screenshot({
-    path: "./screens/screen.png",
+    path: "./screens/screen8.png",
   });
 })();
