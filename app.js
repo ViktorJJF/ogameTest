@@ -9,6 +9,7 @@
       "--disable-dev-shm-usage",
     ],
   });
+  console.log("empezando...");
   const page = await browser.newPage();
   await page.goto("https://lobby.ogame.gameforge.com/es_ES/");
 
