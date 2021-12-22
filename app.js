@@ -1,6 +1,14 @@
 (async () => {
   const puppeteer = require("puppeteer");
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({
+    headless: true,
+    // executablePath: "/usr/bin/firefox",
+    args: [
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--disable-dev-shm-usage",
+    ],
+  });
   const page = await browser.newPage();
   await page.goto("https://lobby.ogame.gameforge.com/es_ES/");
 
