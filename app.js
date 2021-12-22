@@ -1,6 +1,6 @@
 (async () => {
   const puppeteer = require("puppeteer");
-  const browser = await puppeteer.launch({ headless: false });
+  const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
   await page.goto("https://lobby.ogame.gameforge.com/es_ES/");
 
