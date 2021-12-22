@@ -43,7 +43,7 @@
   await page.click("#loginForm > p > button.button.button-primary.button-lg");
   await page.goto("https://lobby.ogame.gameforge.com/es_ES/hub");
   await page.screenshot({
-    path: "./screens/screen9.png",
+    path: __dirname + "/screens/screen9.png",
   });
   await page.waitForSelector("div > #joinGame > a > .button > span", {
     timeout: 15000,
@@ -51,6 +51,6 @@
   console.log("hecho!!");
   //   await browser.close();
   await page.screenshot({
-    path: "./screens/screen8.png",
+    path: __dirname + "/screens/screen8.png",
   });
 })();
