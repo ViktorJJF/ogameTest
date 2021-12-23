@@ -47,9 +47,9 @@
     );
     return document.querySelector("button[type='submit']").click();
   });
-  await page.goto(
-    "https://s208-es.ogame.gameforge.com/game/index.php?page=ingame&component=overview&relogin=1"
-  );
+  // await page.goto(
+  //   "https://s208-es.ogame.gameforge.com/game/index.php?page=ingame&component=overview&relogin=1"
+  // );
   console.log("despues de click");
   await page.screenshot({
     path: "screen9.png",
