@@ -3,11 +3,7 @@
   const browser = await puppeteer.launch({
     dumpio: true,
     headless: true,
-    args: [
-      "--no-sandbox",
-      "--disable-setuid-sandbox",
-      "--disable-dev-shm-usage",
-    ],
+    args: ["--start-fullscreen", "--no-sandbox", "--disable-setuid-sandbox"],
     devtools: false,
   });
   console.log("empezando...");
