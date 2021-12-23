@@ -41,14 +41,18 @@
   // );
   console.log("antes de click");
   // await click(page, ".button-facebook");
-  await click(page, "#loginForm > p > button.button.button-primary.button-lg");
-  await page.evaluate(() => {
-    console.log(
-      "el elemento: ",
-      document.querySelector("button[type='submit']")
-    );
-    return document.querySelector("button[type='submit']").click();
-  });
+  page = clickAndWaitForTarget(
+    "#loginForm > p > button.button.button-primary.button-lg",
+    page,
+    browser
+  );
+  // await page.evaluate(() => {
+  //   console.log(
+  //     "el elemento: ",
+  //     document.querySelector("button[type='submit']")
+  //   );
+  //   return document.querySelector("button[type='submit']").click();
+  // });
   // await page.goto(
   //   "https://s208-es.ogame.gameforge.com/game/index.php?page=ingame&component=overview&relogin=1"
   // );
@@ -76,4 +80,17 @@ async function click(page, selector) {
   } catch (error) {
     console.log("error clicking " + selector + " : " + error);
   }
+}
+
+async function clickAndWaitForTarget(clickSelector, page, browser) {
+  const pageTarget = page.target(); //save this to know that this was the opener
+  await page.click(clickSelector); //click on a link
+  const newTarget = await browser.waitForTarget(
+    (target) => target.opener() === pageTarget
+  ); //check that you opened this page, rather than just checking the url
+  const newPage = await newTarget.page(); //get the page object
+  // await newPage.once("load",()=>{}); //this doesn't work; wait till page is loaded
+  await newPage.waitForSelector("body"); //wait for page to be loaded
+  // newPage.on("console", consoleObj => console.log(consoleObj.text()));
+  return newPage;
 }
