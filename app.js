@@ -3,12 +3,12 @@
   const browser = await puppeteer.launch({
     devtools: true,
     headless: true,
-    executablePath: "/usr/bin/firefox",
+    // executablePath: "/usr/bin/firefox",
     args: [
       "--no-sandbox",
       "--disable-setuid-sandbox",
       "--disable-dev-shm-usage",
-      "--window-size=1200,800",
+      // "--window-size=1200,800",
     ],
   });
   console.log("empezando...");
