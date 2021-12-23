@@ -6,11 +6,7 @@
     args: [
       "--no-sandbox",
       "--disable-setuid-sandbox",
-      "--single-process",
-      "--ignore-gpu-blocklist",
-      "--enable-gpu-rasterization",
-      "--enable-zero-copy",
-      "--disable-gpu",
+      "--disable-dev-shm-usage",
     ],
     devtools: false,
   });
@@ -40,6 +36,7 @@
   await page.waitForSelector('input[type="password"]');
   await page.click('input[type="password"]');
   await page.type('input[type="password"]', "phoneypeople", { delay: 10 });
+  await page.click("input[type='checkbox']");
 
   // await page.waitForSelector(
   //   "#loginForm > p > button.button.button-primary.button-lg"
@@ -54,9 +51,9 @@
     return document.querySelector("button[type='submit']").click();
   });
   console.log("despues de click");
-  //   await page.screenshot({
-  //     path: __dirname + "/screens/screen9.png",
-  //   });
+  await page.screenshot({
+    path: __dirname + "/screens/screen9.png",
+  });
   await page.waitForSelector("div > #joinGame > a > .button > span", {
     timeout: 10000,
   });
