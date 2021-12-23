@@ -58,9 +58,9 @@
   //   "https://s208-es.ogame.gameforge.com/game/index.php?page=ingame&component=overview&relogin=1"
   // );
   console.log("despues de click");
-  // await page.screenshot({
-  //   path: "screen9.png",
-  // });
+  await page.screenshot({
+    path: "screen9.png",
+  });
   await page.waitForSelector("div > #joinGame > a > .button > span", {
     timeout: 10000,
   });
