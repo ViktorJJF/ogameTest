@@ -1,5 +1,6 @@
 (async () => {
   const puppeteer = require("puppeteer");
+  var userAgent = require("user-agents");
   const browser = await puppeteer.launch({
     dumpio: true,
     headless: true,
@@ -8,6 +9,7 @@
   });
   console.log("empezando...");
   const page = await browser.newPage();
+  await page.setUserAgent(userAgent.toString()); // added this
   await page.goto("https://lobby.ogame.gameforge.com/es_ES/");
 
   await page.waitForSelector(".cookiebanner5:nth-child(2)");
