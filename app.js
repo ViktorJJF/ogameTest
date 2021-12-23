@@ -8,6 +8,9 @@
       "--no-sandbox",
       "--disable-setuid-sandbox",
       "--disable-dev-shm-usage",
+      "--headless",
+      "--hide-scrollbars",
+      "--mute-audio",
       // "--window-size=1200,800",
     ],
   });
