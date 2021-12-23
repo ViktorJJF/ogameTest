@@ -43,17 +43,20 @@
   // );
   console.log("antes de click");
   // await click(page, ".button-facebook");
+  await page.waitForSelector(
+    "#registerForm > p > button.button.button-primary.button-lg"
+  );
   await click(
     page,
     "#registerForm > p > button.button.button-primary.button-lg"
   );
-  await page.evaluate(() => {
-    console.log(
-      "el elemento: ",
-      document.querySelector("button[type='submit']")
-    );
-    return document.querySelector("button[type='submit']").click();
-  });
+  // await page.evaluate(() => {
+  //   console.log(
+  //     "el elemento: ",
+  //     document.querySelector("button[type='submit']")
+  //   );
+  //   return document.querySelector("button[type='submit']").click();
+  // });
   console.log("despues de click");
   await page.screenshot({
     path: "screen9.png",
