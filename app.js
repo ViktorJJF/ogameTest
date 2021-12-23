@@ -43,8 +43,9 @@
   );
   console.log("antes de click");
   await page.click("#loginForm > p > button.button.button-primary.button-lg");
-  await page.click("#loginForm > p > button.button.button-primary.button-lg");
-  await page.click("#loginForm > p > button.button.button-primary.button-lg");
+  await page.evaluate(() => {
+    document.querySelector("button[type='submit']").click();
+  });
   console.log("despues de click");
   //   await page.screenshot({
   //     path: __dirname + "/screens/screen9.png",
