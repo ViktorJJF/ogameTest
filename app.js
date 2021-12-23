@@ -3,7 +3,7 @@
   const browser = await puppeteer.launch({
     devtools: true,
     headless: true,
-    executablePath: "/usr/bin/chromium-browser",
+    executablePath: "/usr/bin/firefox",
     args: [
       "--no-sandbox",
       "--disable-setuid-sandbox",
@@ -30,13 +30,13 @@
 
   await page.waitForSelector('input[type="email"]');
   await page.click('input[type="email"]');
-  await page.type('input[type="email"]', "viktor.developer96@gmail.com", {
+  await page.type('input[type="email"]', "rodrigo.diazranilla@gmail.com", {
     delay: 10,
   });
 
   await page.waitForSelector('input[type="password"]');
   await page.click('input[type="password"]');
-  await page.type('input[type="password"]', "sed4cfv52309$", { delay: 10 });
+  await page.type('input[type="password"]', "phoneypeople", { delay: 10 });
 
   await page.waitForSelector(
     "#loginForm > p > button.button.button-primary.button-lg"
