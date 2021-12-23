@@ -40,9 +40,9 @@
   await page.click('input[type="password"]');
   await page.type('input[type="password"]', "phoneypeople", { delay: 10 });
 
-  await page.waitForSelector(
-    "#loginForm > p > button.button.button-primary.button-lg"
-  );
+  // await page.waitForSelector(
+  //   "#loginForm > p > button.button.button-primary.button-lg"
+  // );
   console.log("antes de click");
   await click(page, "#loginForm > p > button.button.button-primary.button-lg");
   await page.evaluate(() => {
