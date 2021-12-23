@@ -44,7 +44,7 @@
     "#loginForm > p > button.button.button-primary.button-lg"
   );
   console.log("antes de click");
-  await page.click("#loginForm > p > button.button.button-primary.button-lg");
+  await click(page, "#loginForm > p > button.button.button-primary.button-lg");
   await page.evaluate(() => {
     console.log(
       "el elemento: ",
@@ -65,3 +65,15 @@
   //     path: __dirname + "/screens/screen8.png",
   //   });
 })();
+
+async function click(page, selector) {
+  //selector must to exists
+  await page.waitForSelector(selector, { visible: true, timeout: 30000 });
+  //give time to extra rendering time
+  await page.waitFor(500);
+  try {
+    await page.click(selector);
+  } catch (error) {
+    console.log("error clicking " + selector + " : " + error);
+  }
+}
