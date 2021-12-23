@@ -8,7 +8,7 @@
     devtools: false,
   });
   console.log("empezando...");
-  const page = await browser.newPage();
+  let page = await browser.newPage();
   await page.setUserAgent(userAgent.toString()); // added this
   await page.goto("https://lobby.ogame.gameforge.com/es_ES/");
 
