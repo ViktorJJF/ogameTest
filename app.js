@@ -10,6 +10,7 @@
       "--ignore-gpu-blocklist",
       "--enable-gpu-rasterization",
       "--enable-zero-copy",
+      "--disable-gpu",
     ],
     devtools: false,
   });
