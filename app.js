@@ -3,7 +3,6 @@
   const browser = await puppeteer.launch({
     dumpio: true,
     headless: true,
-    // executablePath: "/usr/bin/firefox",
     args: [
       "--no-sandbox",
       "--disable-setuid-sandbox",
