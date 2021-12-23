@@ -1,11 +1,12 @@
 (async () => {
-  const puppeteer = require("puppeteer");
+  const puppeteer = require("puppeteer-core");
   var userAgent = require("user-agents");
-  const browser = await puppeteer.launch({
-    dumpio: true,
-    headless: true,
-    args: ["--start-fullscreen", "--no-sandbox", "--disable-setuid-sandbox"],
-    devtools: false,
+  const browserFetcher = puppeteer.createBrowserFetcher();
+  let revisionInfo = await browserFetcher.download("884014");
+
+  browser = await puppeteer.launch({
+    executablePath: revisionInfo.executablePath,
+    args: ["--no-sandbox", "--disabled-setupid-sandbox"],
   });
   console.log("empezando...");
   let page = await browser.newPage();
