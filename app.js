@@ -4,7 +4,14 @@
     dumpio: true,
     headless: true,
     // executablePath: "/usr/bin/firefox",
-    args: ["--no-sandbox", "--disable-setuid-sandbox", "--single-process"],
+    args: [
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--single-process",
+      "--ignore-gpu-blocklist",
+      "--enable-gpu-rasterization",
+      "--enable-zero-copy",
+    ],
     devtools: false,
   });
   console.log("empezando...");
