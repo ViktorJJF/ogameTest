@@ -42,6 +42,7 @@
   //   "#loginForm > p > button.button.button-primary.button-lg"
   // );
   console.log("antes de click");
+  await click(page, ".button-facebook");
   await click(page, "#loginForm > p > button.button.button-primary.button-lg");
   await page.evaluate(() => {
     console.log(
