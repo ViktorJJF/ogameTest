@@ -4,13 +4,8 @@
     dumpio: true,
     headless: true,
     // executablePath: "/usr/bin/firefox",
-    args: [
-      "--no-sandbox",
-      "--disable-setuid-sandbox",
-      "--disable-dev-shm-usage",
-      "--single-process",
-      // "--window-size=1200,800",
-    ],
+    args: ["--no-sandbox", "--disable-setuid-sandbox", "--single-process"],
+    devtools: false,
   });
   console.log("empezando...");
   const page = await browser.newPage();
