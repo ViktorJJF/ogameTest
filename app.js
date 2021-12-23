@@ -52,7 +52,7 @@
   });
   console.log("despues de click");
   await page.screenshot({
-    path: __dirname + "/screens/screen9.png",
+    path: "screen9.png",
   });
   await page.waitForSelector("div > #joinGame > a > .button > span", {
     timeout: 10000,
