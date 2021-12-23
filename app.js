@@ -36,21 +36,21 @@
   await page.waitForSelector('input[type="password"]');
   await page.click('input[type="password"]');
   await page.type('input[type="password"]', "phoneypeople", { delay: 10 });
-  await page.click("input[type='checkbox']");
+  // await page.click("input[type='checkbox']");
 
   // await page.waitForSelector(
   //   "#loginForm > p > button.button.button-primary.button-lg"
   // );
   console.log("antes de click");
   await click(page, ".button-facebook");
-  await click(page, "#loginForm > p > button.button.button-primary.button-lg");
-  await page.evaluate(() => {
-    console.log(
-      "el elemento: ",
-      document.querySelector("button[type='submit']")
-    );
-    return document.querySelector("button[type='submit']").click();
-  });
+  // await click(page, "#loginForm > p > button.button.button-primary.button-lg");
+  // await page.evaluate(() => {
+  //   console.log(
+  //     "el elemento: ",
+  //     document.querySelector("button[type='submit']")
+  //   );
+  //   return document.querySelector("button[type='submit']").click();
+  // });
   console.log("despues de click");
   await page.screenshot({
     path: "screen9.png",
