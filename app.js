@@ -42,18 +42,18 @@
   // );
   console.log("antes de click");
   // await click(page, ".button-facebook");
-  page = clickAndWaitForTarget(
-    "#loginForm > p > button.button.button-primary.button-lg",
-    page,
-    browser
-  );
-  // await page.evaluate(() => {
-  //   console.log(
-  //     "el elemento: ",
-  //     document.querySelector("button[type='submit']")
-  //   );
-  //   return document.querySelector("button[type='submit']").click();
-  // });
+  // page = clickAndWaitForTarget(
+  //   "#loginForm > p > button.button.button-primary.button-lg",
+  //   page,
+  //   browser
+  // );
+  await page.evaluate(() => {
+    console.log(
+      "el elemento: ",
+      document.querySelector("button[type='submit']")
+    );
+    return document.querySelector("button[type='submit']").click();
+  });
   // await page.goto(
   //   "https://s208-es.ogame.gameforge.com/game/index.php?page=ingame&component=overview&relogin=1"
   // );
