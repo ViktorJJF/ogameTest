@@ -6,10 +6,7 @@
     args: [
       "--no-sandbox",
       "--disable-setuid-sandbox",
-      "--single-process",
-      "--ignore-gpu-blocklist",
-      "--enable-gpu-rasterization",
-      "--enable-zero-copy",
+      "--disable-dev-shm-usage",
     ],
     devtools: false,
   });
