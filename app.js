@@ -5,9 +5,10 @@
   let revisionInfo = await browserFetcher.download("884014");
 
   browser = await puppeteer.launch({
+    executablePath: "/usr/bin/chromium-browser",
     headless: true,
     executablePath: revisionInfo.executablePath,
-    // args: ["--no-sandbox", "--disabled-setupid-sandbox"],
+    args: ["--no-sandbox", "--disabled-setupid-sandbox"],
   });
   browser = await browser.createIncognitoBrowserContext();
   console.log("empezando...");
