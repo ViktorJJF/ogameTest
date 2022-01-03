@@ -13,6 +13,11 @@
   browser = await browser.createIncognitoBrowserContext();
   console.log("empezando...");
   let page = await browser.newPage();
+
+  page.on("error", (err) => {
+    logger.error("Puppeteer error.", err);
+  });
+
   await page.setUserAgent(userAgent.toString()); // added this
   await page.goto("https://lobby.ogame.gameforge.com/es_ES/");
 
