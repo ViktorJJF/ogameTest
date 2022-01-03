@@ -8,7 +8,13 @@
     executablePath: "/usr/bin/chromium-browser",
     headless: true,
     executablePath: revisionInfo.executablePath,
-    args: ["--no-sandbox", "--disabled-setupid-sandbox"],
+    args: [
+      "--ignore-certificate-errors",
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--disable-accelerated-2d-canvas",
+      "--disable-gpu",
+    ],
   });
   browser = await browser.createIncognitoBrowserContext();
   console.log("empezando...");
