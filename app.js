@@ -5,9 +5,11 @@
   let revisionInfo = await browserFetcher.download("884014");
 
   browser = await puppeteer.launch({
+    headless: true,
     executablePath: revisionInfo.executablePath,
-    args: ["--no-sandbox", "--disabled-setupid-sandbox"],
+    // args: ["--no-sandbox", "--disabled-setupid-sandbox"],
   });
+  browser = await browser.createIncognitoBrowserContext();
   console.log("empezando...");
   let page = await browser.newPage();
   await page.setUserAgent(userAgent.toString()); // added this
