@@ -11,11 +11,9 @@
     devtools: true,
     executablePath: revisionInfo.executablePath,
     args: [
-      "--ignore-certificate-errors",
       "--no-sandbox",
       "--disable-setuid-sandbox",
-      "--disable-accelerated-2d-canvas",
-      "--disable-gpu",
+      "--disable-dev-shm-usage",
     ],
   });
   browser = await browser.createIncognitoBrowserContext();
@@ -129,6 +127,9 @@
     console.log("COOKIE AGREGADO!");
     return true;
   }, token);
+  await page.goto(
+    "https://s208-es.ogame.gameforge.com/game/index.php?page=ingame&component=overview&relogin=1"
+  );
   await page.goto(
     "https://s208-es.ogame.gameforge.com/game/index.php?page=ingame&component=overview&relogin=1"
   );
