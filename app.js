@@ -58,7 +58,7 @@
     );
     await page.click("#loginForm > p > button.button.button-primary.button-lg");
     console.log("tiene bloqueo?");
-    await timeout(5 * 1000);
+    await timeout(10 * 1000);
     console.log("se termino de esperar 5 seg");
     let hasCookie = await page.evaluate(() => {
       return Boolean(document.querySelector("[data-testid]"));
