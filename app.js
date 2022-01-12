@@ -105,7 +105,7 @@
       data: data,
     };
 
-    // const response = await axios(config);
+    const response = await axios(config);
     const token = response.data.token;
     // const token = "39dc589f-9027-4824-810e-2897412dd2f9";
     console.log("🚀 Aqui *** -> token", token);
