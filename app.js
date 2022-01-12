@@ -8,7 +8,7 @@
 
     browser = await puppeteer.launch({
       executablePath: "/usr/bin/chromium-browser",
-      headless: true,
+      headless: false,
       devtools: true,
       executablePath: revisionInfo.executablePath,
       args: [
@@ -26,7 +26,7 @@
     });
 
     await page.setUserAgent(userAgent.toString()); // added this
-    await page.goto("https://lobby.ogame.gameforge.com/es_ES/");
+    await page.goto("https://lobby.ogame.gameforge.com/en_GB/");
 
     await page.waitForSelector(".cookiebanner5:nth-child(2)");
     await page.click(".cookiebanner5:nth-child(2)");
@@ -71,42 +71,43 @@
     //   page,
     //   browser
     // );
-    // var data = JSON.stringify({
-    //   identity: "viktor.developer96@gmail.com",
-    //   password: "sed4cfv52309$",
-    //   locale: "en_GB",
-    //   gfLang: "en",
-    //   platformGameId: "1dfd8e7e-6e1a-4eb1-8c64-03c3b62efd2f",
-    //   gameEnvironmentId: "0a31d605-ffaf-43e7-aa02-d06df7116fc8",
-    //   autoGameAccountCreation: false,
-    // });
+    var data = JSON.stringify({
+      identity: "viktor.developer96@gmail.com",
+      password: "sed4cfv52309$",
+      locale: "en_GB",
+      gfLang: "en",
+      platformGameId: "1dfd8e7e-6e1a-4eb1-8c64-03c3b62efd2f",
+      gameEnvironmentId: "0a31d605-ffaf-43e7-aa02-d06df7116fc8",
+      autoGameAccountCreation: false,
+    });
 
-    // var config = {
-    //   method: "post",
-    //   url: "https://gameforge.com/api/v1/auth/thin/sessions",
-    //   headers: {
-    //     authority: "gameforge.com",
-    //     "sec-ch-ua":
-    //       '" Not A;Brand";v="99", "Chromium";v="96", "Google Chrome";v="96"',
-    //     "content-type": "application/json",
-    //     "tnt-installation-id": "",
-    //     "sec-ch-ua-mobile": "?0",
-    //     "user-agent":
-    //       "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36",
-    //     "sec-ch-ua-platform": '"Windows"',
-    //     accept: "*/*",
-    //     origin: "https://lobby.ogame.gameforge.com",
-    //     "sec-fetch-site": "same-site",
-    //     "sec-fetch-mode": "cors",
-    //     "sec-fetch-dest": "empty",
-    //     referer: "https://lobby.ogame.gameforge.com/",
-    //     "accept-language": "en",
-    //   },
-    //   data: data,
-    // };
+    var config = {
+      method: "post",
+      url: "https://gameforge.com/api/v1/auth/thin/sessions",
+      headers: {
+        authority: "gameforge.com",
+        "sec-ch-ua":
+          '" Not A;Brand";v="99", "Chromium";v="96", "Google Chrome";v="96"',
+        "content-type": "application/json",
+        "tnt-installation-id": "",
+        "sec-ch-ua-mobile": "?0",
+        "user-agent":
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36",
+        "sec-ch-ua-platform": '"Windows"',
+        accept: "*/*",
+        origin: "https://lobby.ogame.gameforge.com",
+        "sec-fetch-site": "same-site",
+        "sec-fetch-mode": "cors",
+        "sec-fetch-dest": "empty",
+        referer: "https://lobby.ogame.gameforge.com/",
+        "accept-language": "en",
+      },
+      data: data,
+    };
 
     // const response = await axios(config);
-    const token = "wefwf";
+    const token = response.data.token;
+    // const token = "39dc589f-9027-4824-810e-2897412dd2f9";
     console.log("🚀 Aqui *** -> token", token);
     await page.evaluate((token) => {
       console.log("el token: ", token);
