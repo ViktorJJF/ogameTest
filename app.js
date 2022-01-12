@@ -53,10 +53,10 @@
     // await page.click("input[type='checkbox']");
 
     console.log("antes de click");
-    await page.waitForSelector(
-      "#loginForm > p > button.button.button-primary.button-lg"
-    );
-    await page.click("#loginForm > p > button.button.button-primary.button-lg");
+    // await page.waitForSelector(
+    //   "#loginForm > p > button.button.button-primary.button-lg"
+    // );
+    // await page.click("#loginForm > p > button.button.button-primary.button-lg");
     console.log("tiene bloqueo?");
     // await timeout(10 * 1000);
     // console.log("se termino de esperar 5 seg");
@@ -107,44 +107,44 @@
 
     // const response = await axios(config);
     // const token = response.data.token;
-    // // const token = "39dc589f-9027-4824-810e-2897412dd2f9";
-    // console.log("🚀 Aqui *** -> token", token);
-    // await page.evaluate((token) => {
-    //   console.log("el token: ", token);
-    //   function setCookie(name, value, days) {
-    //     var expires = "";
-    //     if (days) {
-    //       var date = new Date();
-    //       date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-    //       expires = "; expires=" + date.toUTCString();
-    //     }
-    //     document.cookie = name + "=" + (value || "") + expires + "; path=/";
-    //   }
-    //   function getCookie(name) {
-    //     var nameEQ = name + "=";
-    //     var ca = document.cookie.split(";");
-    //     for (var i = 0; i < ca.length; i++) {
-    //       var c = ca[i];
-    //       while (c.charAt(0) == " ") c = c.substring(1, c.length);
-    //       if (c.indexOf(nameEQ) == 0)
-    //         return c.substring(nameEQ.length, c.length);
-    //     }
-    //     return null;
-    //   }
-    //   function eraseCookie(name) {
-    //     document.cookie =
-    //       name + "=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
-    //   }
-    //   setCookie("gf-token-production", token, 7);
-    //   console.log("COOKIE AGREGADO!");
-    //   return true;
-    // }, token);
+    const token = "39dc589f-9027-4824-810e-2897412dd2f9";
+    console.log("🚀 Aqui *** -> token", token);
+    await page.evaluate((token) => {
+      console.log("el token: ", token);
+      function setCookie(name, value, days) {
+        var expires = "";
+        if (days) {
+          var date = new Date();
+          date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+          expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+      }
+      function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(";");
+        for (var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == " ") c = c.substring(1, c.length);
+          if (c.indexOf(nameEQ) == 0)
+            return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+      }
+      function eraseCookie(name) {
+        document.cookie =
+          name + "=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+      }
+      setCookie("gf-token-production", token, 7);
+      console.log("COOKIE AGREGADO!");
+      return true;
+    }, token);
     // await page.goto(
     //   "https://s208-es.ogame.gameforge.com/game/index.php?page=ingame&component=overview&relogin=1"
     // );
-    // await page.goto(
-    //   "https://s208-es.ogame.gameforge.com/game/index.php?page=ingame&component=overview&relogin=1"
-    // );
+    await page.goto(
+      "https://s208-es.ogame.gameforge.com/game/index.php?page=ingame&component=overview&relogin=1"
+    );
     await page.waitForSelector("div > #joinGame > a > .button > span", {
       timeout: 10000,
     });
