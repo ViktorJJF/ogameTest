@@ -8,7 +8,7 @@
 
     browser = await puppeteer.launch({
       executablePath: "/usr/bin/chromium-browser",
-      headless: false,
+      headless: true,
       devtools: true,
       executablePath: revisionInfo.executablePath,
       args: [
